@@ -2,6 +2,8 @@ package com.bankassShop.ebankass.model;
 
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -31,10 +33,8 @@ public class Customer {
 
 	private String email;
 
-	private String address;
-
 	private Timestamp dateOfBirth;
 	
 	@OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
-	private List<Address> addresses;
+	private Set<Address> addresses;
 }
