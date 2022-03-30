@@ -1,7 +1,11 @@
-com/bankassShop/ebankass/dao/impl/CustomerDaoImpl.class
 com/bankassShop/ebankass/model/Customer.class
-com/bankassShop/ebankass/dao/CustomerDao.class
+com/bankassShop/ebankass/Service/impl/AddressServiceImpl.class
+com/bankassShop/ebankass/repository/AddresseRepository.class
 com/bankassShop/ebankass/model/Address.class
+com/bankassShop/ebankass/service/CustomerService.class
+com/bankassShop/ebankass/repository/CustomerRepository.class
+com/bankassShop/ebankass/model/Customer$Gender.class
 com/bankassShop/ebankass/controller/CustomerController.class
-com/bankassShop/ebankass/dao/GenericDao.class
+com/bankassShop/ebankass/Service/impl/CustomerServiceImpl.class
 com/bankassShop/ebankass/EBankassApplication.class
+com/bankassShop/ebankass/service/AddressService.class
