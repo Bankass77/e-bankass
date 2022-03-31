@@ -1,8 +1,13 @@
 /home/a.guindo@gop.link/eclipse-workspace/e-bankass/src/main/java/com/bankassShop/ebankass/Service/impl/CustomerServiceImpl.java
 /home/a.guindo@gop.link/eclipse-workspace/e-bankass/src/main/java/com/bankassShop/ebankass/repository/CustomerRepository.java
-/home/a.guindo@gop.link/eclipse-workspace/e-bankass/src/main/java/com/bankassShop/ebankass/model/Address.java
 /home/a.guindo@gop.link/eclipse-workspace/e-bankass/src/main/java/com/bankassShop/ebankass/repository/AddresseRepository.java
 /home/a.guindo@gop.link/eclipse-workspace/e-bankass/src/main/java/com/bankassShop/ebankass/controller/CustomerController.java
 /home/a.guindo@gop.link/eclipse-workspace/e-bankass/src/main/java/com/bankassShop/ebankass/service/CustomerService.java
+/home/a.guindo@gop.link/eclipse-workspace/e-bankass/src/main/java/com/bankassShop/ebankass/mapper/AdressDtoMapper.java
 /home/a.guindo@gop.link/eclipse-workspace/e-bankass/src/main/java/com/bankassShop/ebankass/EBankassApplication.java
+/home/a.guindo@gop.link/eclipse-workspace/e-bankass/src/main/java/com/bankassShop/ebankass/Dto/AddressDto.java
+/home/a.guindo@gop.link/eclipse-workspace/e-bankass/src/main/java/com/bankassShop/ebankass/mapper/CustomerMapper.java
+/home/a.guindo@gop.link/eclipse-workspace/e-bankass/src/main/java/com/bankassShop/ebankass/model/Address.java
+/home/a.guindo@gop.link/eclipse-workspace/e-bankass/src/main/java/com/bankassShop/ebankass/Dto/CustomerDto.java
+/home/a.guindo@gop.link/eclipse-workspace/e-bankass/src/main/java/com/bankassShop/ebankass/config/EbankassConfig.java
 /home/a.guindo@gop.link/eclipse-workspace/e-bankass/src/main/java/com/bankassShop/ebankass/model/Customer.java

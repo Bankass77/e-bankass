@@ -15,6 +15,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -43,12 +44,14 @@ public class Address implements Serializable {
 	@NotBlank
 	@NotEmpty
 	@Column(name = "address1", unique = false, nullable = true, insertable=true, updatable=true)
+	@Pattern(regexp = "^[A-Za-z]+$", message = "First name should contain only alphabets")
 	private String addressLine1;
 
 	@NotNull
 	@NotBlank
 	@NotEmpty
 	@Column(name = "address2", unique = false, nullable = true, insertable=true, updatable=true)
+	@Pattern(regexp = "^[A-Za-z]+$", message = "First name should contain only alphabets")
 	private String addressLine2;
 
 	@NotNull
@@ -61,6 +64,7 @@ public class Address implements Serializable {
 	@NotBlank
 	@NotEmpty
 	@Column(name = "zipcode", unique = false, nullable = true, insertable=true, updatable=true)
+	@Pattern(regexp = "^(?:[0-8]\\d|9[0-8])\\d{3}$", message = "Zip Code should contain only Numeric")
 	private String zipCode;
 
 	@NotNull

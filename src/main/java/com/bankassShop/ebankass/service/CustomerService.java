@@ -2,20 +2,21 @@ package com.bankassShop.ebankass.service;
 
 import java.util.Set;
 
+import com.bankassShop.ebankass.Dto.CustomerDto;
 import com.bankassShop.ebankass.model.Customer;
 
 public interface CustomerService {
 
-	Customer getCustomerById(long id);
+	CustomerDto getCustomerById(long id);
 
-	Set<Customer> getAll();
+	Set<CustomerDto> getAll();
 
-	Customer createCustomer(Customer t);
+	CustomerDto createCustomer(CustomerDto t);
 
-	void updateCustomer(Customer t);
+	void updateCustomer(CustomerDto t);
 
-	void deleteCustomer(Customer t);
+	void deleteCustomer(CustomerDto t);
 
-	Customer findCustomerByEmail(String email);
-
+	CustomerDto findCustomerByEmail(String email);
+	boolean emailExist(String email);
 }
