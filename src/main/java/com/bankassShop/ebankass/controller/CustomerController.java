@@ -34,22 +34,22 @@ public class CustomerController {
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public Long createNewCustomer(Customer customer) {
+	public Customer createNewCustomer(Customer customer) {
 
-		Long customer2 = customerService.save(customer);
-		return customer2;
+		customer = customerService.createCustomer(customer);
+		return customer;
 	}
 
 	
 	@RequestMapping(value = "/update/{id}")
 	public  void update( Customer customer) {
 		
-		customerService.update(customer);
+		customerService.updateCustomer(customer);
 	}
 	
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
 	public void delete (Customer customer) {
 		
-		customerService.delete(customer);
+		customerService.deleteCustomer(customer);
 	}
 }

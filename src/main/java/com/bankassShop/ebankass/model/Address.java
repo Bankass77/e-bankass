@@ -1,5 +1,7 @@
 package com.bankassShop.ebankass.model;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,10 +14,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 import lombok.Setter;
 
 @Entity
@@ -24,45 +27,50 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Address {
+public class Address implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "addressId", insertable = false, updatable = false)
+	@Column(name = "addressId", unique = true, nullable = false, insertable=true, updatable=true)
 	private Long addressId;
 
-	@NonNull
+	@NotNull
 	@NotBlank
 	@NotEmpty
-	@Column
+	@Column(name = "address1", unique = false, nullable = true, insertable=true, updatable=true)
 	private String addressLine1;
 
-	@NonNull
+	@NotNull
 	@NotBlank
 	@NotEmpty
-	@Column
+	@Column(name = "address2", unique = false, nullable = true, insertable=true, updatable=true)
 	private String addressLine2;
 
-	@NonNull
+	@NotNull
 	@NotBlank
 	@NotEmpty
-	@Column
+	@Column(name = "city", unique = false, nullable = true, insertable=true, updatable=true)
 	private String city;
 
-	@NonNull
+	@NotNull
 	@NotBlank
 	@NotEmpty
-	@Column
+	@Column(name = "zipcode", unique = false, nullable = true, insertable=true, updatable=true)
 	private String zipCode;
 
-	@NonNull
+	@NotNull
 	@NotBlank
 	@NotEmpty
-	@Column
+	@Column(name = "country", unique = false, nullable = true, insertable=true, updatable=true)
 	private String country;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
-	@JoinColumn(name = "customerId")
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "customer_Id", referencedColumnName = "customerId")
 	private Customer customer;
 
 }

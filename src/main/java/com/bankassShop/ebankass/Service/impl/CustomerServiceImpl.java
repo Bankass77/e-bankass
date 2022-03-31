@@ -35,7 +35,7 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public Customer get(long id) {
+	public Customer getCustomerById(long id) {
 
 		Optional<Customer> cOptional = customerRepository.findById(id);
 
@@ -54,24 +54,49 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public Long save(Customer t) {
+	public Customer createCustomer(Customer t) {
 
-		Customer customer = customerRepository.save(t);
-		Address address = addressRepository.save(customer.getAddresses().iterator().next());
-		log.debug("Customer address is:{}", address);
-		return customer.getCustomerId();
+		Customer customer = new Customer();
+
+		customer.setAddresses(t.getAddresses());
+		customer.setCreatedAt(t.getCreatedAt());
+		customer.setCustomerId(t.getCustomerId());
+		customer.setDateOfBirth(t.getDateOfBirth());
+		customer.setEmail(t.getEmail());
+		customer.setFirstName(t.getFirstName());
+		customer.setGender(t.getGender());
+		customer.setLastName(t.getLastName());
+		customer.setPassword(t.getPassword());
+		customer.setUpdateAt(t.getUpdateAt());
+
+		log.debug("Customer address is:{}", customer);
+
+		customerRepository.save(customer);
+		return customer;
 
 	}
 
 	@Override
-	public void update(Customer t) {
-		addressRepository.save(t.getAddresses().iterator().next());
-		customerRepository.save(t);
+	public void updateCustomer(Customer t) {
+		
+		Customer customer = new Customer();
+
+		customer.setAddresses(t.getAddresses());
+		customer.setCreatedAt(t.getCreatedAt());
+		customer.setCustomerId(t.getCustomerId());
+		customer.setDateOfBirth(t.getDateOfBirth());
+		customer.setEmail(t.getEmail());
+		customer.setFirstName(t.getFirstName());
+		customer.setGender(t.getGender());
+		customer.setLastName(t.getLastName());
+		customer.setPassword(t.getPassword());
+		customer.setUpdateAt(t.getUpdateAt());
+		customerRepository.save(customer);
 
 	}
 
 	@Override
-	public void delete(Customer t) {
+	public void deleteCustomer(Customer t) {
 
 		customerRepository.delete(t);
 
