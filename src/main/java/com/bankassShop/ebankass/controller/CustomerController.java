@@ -2,10 +2,13 @@ package com.bankassShop.ebankass.controller;
 
 import java.util.Set;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.bankassShop.ebankass.Dto.CustomerDto;
 import com.bankassShop.ebankass.service.CustomerService;
@@ -29,14 +32,21 @@ public class CustomerController {
 	public Set<CustomerDto> getAllCustomer() {
 
 		Set<CustomerDto> customers = customerService.getAll();
-
+         ModelAndView modelAndView= new ModelAndView("allCustomer");
+         
+         modelAndView.addObject("customers", customers);
 		return customers;
 	}
 
+	
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public CustomerDto createNewCustomer(CustomerDto customer) {
+	public CustomerDto createNewCustomer(@Valid CustomerDto customer) {
 
+		ModelAndView modelAndView= new ModelAndView("createCustomer");
+		
 		customer = customerService.createCustomer(customer);
+		
+		modelAndView.addObject("createCustomer", customer);
 		return customer;
 	}
 

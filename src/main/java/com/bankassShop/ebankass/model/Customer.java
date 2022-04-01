@@ -56,34 +56,35 @@ public class Customer implements Serializable {
 	@NotNull
 	@NotBlank
 	@NotEmpty
-	@Size(min = 8)
+	@Size(min = 8, message = "required")
 	@Column(name = "password", unique = false, nullable = true, insertable = true, updatable = true)
+	@Pattern(regexp = "^[a-zA-Z0-9]{4}", message = "The length should be at least 4")
 	private String password;
 
 	@NotNull
 	@NotBlank
 	@NotEmpty
-	@Size(min = 3)
+	@Size(min = 3, message = "required")
 	@Column(name = "lastName", unique = false, nullable = true, insertable = true, updatable = true)
-	 @Pattern(regexp = "^[A-Za-z]+$", message = "First name should contain only alphabets")
+	@Pattern(regexp = "^[A-Za-z]+$", message = "First name should contain only alphabets")
 	private String lastName;
 
 	@NotNull
 	@NotBlank
 	@NotEmpty
-	@Size(min = 3)
+	@Size(min = 3, message = "required")
 	@Column(name = "firstName", unique = false, nullable = true, insertable = true, updatable = true)
-	 @Pattern(regexp = "^[A-Za-z]+$", message = "First name should contain only alphabets")
+	@Pattern(regexp = "^[A-Za-z]+$", message = "First name should contain only alphabets")
 	private String firstName;
 
 	@NotNull
 	@Email
-	@NotBlank
+	@NotBlank(message = "required")
 	@NotEmpty
 	@Column(name = "email", unique = true, nullable = true, insertable = true, updatable = true)
 	private String email;
 
-	@NotBlank
+	@NotBlank(message = "required")
 	@NotEmpty
 	@NotNull
 	@Column(name = "dateOfBirth", nullable = true, insertable = true, updatable = true)
@@ -91,7 +92,6 @@ public class Customer implements Serializable {
 	private LocalDate dateOfBirth;
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-	//@JoinColumn(name = "customerId")
 	private Set<Address> addresses = new HashSet<Address>();
 
 	public enum Gender {
@@ -99,7 +99,7 @@ public class Customer implements Serializable {
 	}
 
 	@Enumerated(EnumType.STRING)
-	@NotNull
+	@NotNull(message = "required")
 	@Column(name = "gender", nullable = true, insertable = true, updatable = true)
 	private Gender gender;
 
