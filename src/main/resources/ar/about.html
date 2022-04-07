@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&family=Raleway:wght@200;300;400;500;600;700&family=Roboto+Condensed:wght@400;700&family=Roboto:wght@300;400;500;700;900&family=Saira:wght@300;400;500;600;700;800;900&display=swap');
+
+        * {
+            font-family: 'Cairo', sans-serif;
+        }
+    </style>
+
+    <title>Tailwind & Alpine</title>
+</head>
+
+<body>
+
+    <!-- start navbar -->
+    <nav class="relative w-full px-3 md:px-13 py-2 flex justify-between items-center bg-white shadow">
+
+        <div class="lg:hidden rtl:ml-auto ltr:mr-auto">
+            <button class="navbar-burger flex items-center text-blue-600 p-1 mt-2">
+                <svg class="block h-7 w-7 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <title>Mobile menu</title>
+                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- logo -->
+        <a class="text-3xl font-bold leading-none" href="#">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Wikimedia-logo.png/480px-Wikimedia-logo.png"
+                alt="logo" class="h-12 ltr:ml-20 rtl:mr-20">
+        </a>
+
+        <!-- search -->
+        <form action="#" class="hidden md:block">
+            <div class="flex items-center justify-center">
+                <div class="flex rounded">
+                    <input type="search" class="px-2 py-2 w-[36rem] bg-slate-200 focus:outline-none text-sm"
+                        placeholder="Search...">
+                    <button class="px-4 text-gray-600 bg-slate-200 border-l border-gray-300 ">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <!-- icons -->
+        <ul class="hidden relative sm:hidden md:flex space-x-3 rtl:space-x-reverse ltr:mr-20 rtl:ml-16">
+
+            <!-- change language -->
+            <li class="flex items-center border-l border-r p-1 ltr:mr-16 rtl:ml-10 cursor-pointer">
+                <a href="/about.html" class="flex items-center justify-center">
+                    <img class="w-5 h-4 rounded" src="/images/egypt.png" alt="country image">
+                    <p class="ltr:ml-1 rtl:mr-1 text-sm">English</p>
+                </a>
+            </li>
+
+            <!-- icon cart -->
+            <li class="w-8 h-8 p-2 bg-blue-500 hover:bg-blue-600 rounded-full shadow">
+                <a href="/cart.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-bag"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
+                    </svg>
+                </a>
+            </li>
+            <p
+                class="absolute bottom-5 ltr:right-20 rtl:left-20 z-10 w-5 h-5 leading-5 font-semibold text-black text-sm text-center rounded-full bg-slate-300">
+                2
+            </p>
+
+            <!-- icon wishlest -->
+            <li class="w-8 h-8 p-2 bg-blue-500 hover:bg-blue-600 rounded-full shadow">
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-heart"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                    </svg>
+                </a>
+            </li>
+            <p
+                class="absolute bottom-5 ltr:right-32 rtl:left-32 w-5 h-5 leading-5 font-semibold text-black text-sm text-center rounded-full bg-slate-300">
+                2
+            </p>
+
+            <!-- icon login -->
+            <li class="w-8 h-8 p-2 bg-blue-500 hover:bg-blue-600 rounded-full shadow">
+                <a href="/sign-in.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-person"
+                        viewBox="0 0 16 16">
+                        <path
+                            d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+                    </svg>
+                </a>
+            </li>
+
+            <!-- image user profile -->
+            <li class="cursor-pointer rounded-full shadow z-50">
+                <div class="relative group">
+                    <img class="w-8 h-8 rounded-full border-1 border-gray-500 p-1" src="/images/uuser.jpg"
+                        alt="user image">
+                    <div class="absolute rounded w-64 top-8 right-1 hidden group-hover:block bg-gray-200 p-2">
+                        <!-- image -->
+                        <img class="w-24 h-24 mx-auto rounded-full border border-blue-500 p-1" src="/images/uuser.jpg"
+                            alt="profile">
+                        <!-- name -->
+                        <p class="text-center text-gray-600 mt-1 cursor-pointer"><a href="/order.html">Ahmed Serag</a>
+                        </p>
+                        <!-- setting list -->
+                        <div class="px-2">
+                            <div class="flex items-center mt-3 hover:opacity-80">
+                                <i class="fa fa-cart-plus text-gray-700"></i>
+                                <p class="capitalize text-sm text-gray-700 ltr:ml-2 rtl:mr-2">
+                                    <a href="/order.html">my order</a>
+                                </p>
+                            </div>
+
+                            <div class="flex items-center mt-3 hover:opacity-80">
+                                <i class="fa fa-info-circle text-gray-700"></i>
+                                <p class="capitalize text-sm text-gray-700 ltr:ml-2 rtl:mr-2">
+                                    <a href="/about.html">about us</a>
+                                </p>
+                            </div>
+
+                            <div class="flex items-center mt-3 hover:opacity-80">
+                                <i class="fa fa-phone-alt text-gray-700"></i>
+                                <p class="capitalize text-sm text-gray-700 ltr:ml-2 rtl:mr-2">
+                                    <a href="/contact.html">contact us</a>
+                                </p>
+                            </div>
+
+                            <div class="flex items-center mt-3 hover:opacity-80">
+                                <i class="fa fa-cog text-gray-700"></i>
+                                <p class="capitalize text-sm text-gray-700 ltr:ml-2 rtl:mr-2">
+                                    <a href="/profile-dashboard.html">Setting</a>
+                                </p>
+                            </div>
+
+                            <div class="flex items-center justify-center mt-3 hover:opacity-80">
+                                <i class="fas fa-sign-out-alt text-gray-700"></i>
+                                <p class="capitalize text-sm text-gray-700 ltr:ml-2 rtl:mr-2">Log Out</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+
+        </ul>
+
+
+    </nav>
+    <div class="navbar-menu relative z-50 hidden">
+        <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-60"></div>
+        <nav
+            class="fixed top-0 ltr:left-0 rtl:right-0 bottom-0 flex flex-col w-5/6 max-w-sm py-3 px-3 bg-white border-r">
+            <div class="mb-4 bg-gradient-to-tr from-blue-500 to-blue-600 p-2 text-white rounded">
+                <button class="navbar-close">
+                    <svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="white">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+                <img src="/images/uuser.jpg" alt="logo"
+                    class="w-24 h-24 rounded-full border-1 border-white p-1 mx-auto">
+                <p class="mt-1 font-semibold text-center">Ahmed Serag</p>
+                <p class="flex relative left-20 mt-2">
+                    <img class="w-6 h-4 rounded mt-1" src="/images/egypt.png" alt="egypt flag">
+                    <span class="ltr:ml-1 rtl:mr-1 font-normal text-md">Arabic</span>
+                </p>
+
+            </div>
+
+            <div>
+                <ul>
+                    <li class="mb-1">
+                        <a class="block p-2 text-sm font-semibold text-black hover:bg-blue-50 hover:text-blue-600 rounded"
+                            href="/">Home</a>
+                    </li>
+                    <li class="mb-1">
+                        <a class="block p-2 text-sm font-semibold text-black hover:bg-blue-50 hover:text-blue-600 rounded"
+                            href="./about.html">About Us</a>
+                    </li>
+                    <li class="mb-1">
+                        <a class="block p-2 text-sm font-semibold text-black hover:bg-blue-50 hover:text-blue-600 rounded"
+                            href="./answers.html">Answer</a>
+                    </li>
+                    <li class="mb-1">
+                        <a class="block p-2 text-sm font-semibold text-black hover:bg-blue-50 hover:text-blue-600 rounded"
+                            href="./contact.html">Contact</a>
+                    </li>
+
+
+                    <!-- dropdown dahsboard -->
+                    <li>
+                        <!-- start dropdown modal dashboard  -->
+                        <div x-data="{
+                open: false,
+                toggle() {
+                    if (this.open) {
+                        return this.close()
+                    }
+            
+                    this.open = true
+                },
+                close(focusAfter) {
+                    this.open = false
+                    focusAfter && focusAfter.focus()
+                }
+            }" x-on:keydown.escape.prevent.stop="close($refs.button)"
+                            x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+                            x-id="['dropdown-button']" class="relative">
+                            <!-- Button -->
+                            <button x-ref="button" x-on:click="toggle()" :aria-expanded="open"
+                                :aria-controls="$id('dropdown-button')" type="button" class="border-0">
+                                <span
+                                    class="flex text text-black ltr:ml-2 rtl:mr-2 font-medium transition duration-150 ease-in-out hover:text-blue-500 hover:underline">
+                                    Dashboard
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-chevron-down mt-1" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                                    </svg>
+                                </span>
+                            </button>
+
+                            <!-- Panel -->
+                            <div x-ref="panel" x-show="open" x-transition.origin.top.left
+                                x-on:click.outside="close($refs.button)" :id="$id('dropdown-button')"
+                                style="display: none;" class="absolute left-0 mt-2 bg-white border border-black">
+                                <div class="whitespace-nowrap">
+                                    <a href="/datatable.html"
+                                        class="block w-full px-4 py-2 text-left text-sm hover:bg-gray-100">
+                                        DataTables
+                                    </a>
+
+                                    <a href="/charts.html"
+                                        class="block w-full px-4 py-2 text-left text-sm hover:bg-gray-100">
+                                        Chart Js
+                                    </a>
+
+                                    <a href="/profile-dashboard.html"
+                                        class="block w-full px-4 py-2 text-left text-sm hover:bg-gray-100">
+                                        Profile
+                                    </a>
+
+                                    <a href="/Ecoomerce-dashboard.html"
+                                        class="block  w-full px-4 py-2 text-left text-sm hover:bg-gray-100">
+                                        E-Commerce
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end dropdown modal  -->
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- End navbar -->
+
+    <!-- start mini navbar -->
+    <div class="sticky top-0 z-30 w-full bg-slate-200 p-1">
+        <ul class="hidden md:flex space-x-3 rtl:space-x-reverse ltr:ml-10 rtl:mr-10">
+            <li><a class="text text-black font-semibold uppercase transition duration-150 ease-in-out" href="/">
+                Home</a></li>
+
+            <li><a class="text text-black font-semibold uppercase transition duration-150 ease-in-out"
+                    href="../ar/about.html">About Us</a></li>
+
+            <li><a class="text text-black font-semibold uppercase transition duration-150 ease-in-out"
+                    href="../ar/blog.html">Blog</a></li>
+
+            <li><a class="text text-black font-semibold uppercase transition duration-150 ease-in-out"
+                    href="../ar/answers.html">Answer</a></li>
+
+            <li><a class="text text-black font-semibold uppercase transition duration-150 ease-in-out"
+                    href="../ar/contact.html">Contact</a></li>
+
+            <!-- dropdown dahsboard -->
+            <li>
+                <!-- start dropdown modal dashboard  -->
+                <div x-data="{
+            open: false,
+            toggle() {
+                if (this.open) {
+                    return this.close()
+                }
+        
+                this.open = true
+            },
+            close(focusAfter) {
+                this.open = false
+                focusAfter && focusAfter.focus()
+            }
+        }" x-on:keydown.escape.prevent.stop="close($refs.button)"
+                    x-on:focusin.window="! $refs.panel.contains($event.target) && close()" x-id="['dropdown-button']"
+                    class="relative">
+                    <!-- Button -->
+                    <button x-ref="button" x-on:click="toggle()" :aria-expanded="open"
+                        :aria-controls="$id('dropdown-button')" type="button" class="">
+                        <span class="flex text text-black font-semibold uppercase transition duration-150 ease-in-out">
+                            Dashboard
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-chevron-down mt-1" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                            </svg>
+                        </span>
+                    </button>
+
+                    <!-- Panel -->
+                    <div x-ref="panel" x-show="open" x-transition.origin.top.left
+                        x-on:click.outside="close($refs.button)" :id="$id('dropdown-button')" style="display: none;"
+                        class="absolute left-0 mt-2 bg-white shadow">
+                        <div class="whitespace-nowrap">
+                            <a href="../ar/datatable.html"
+                                class="block w-full px-4 py-2 text-left text-sm hover:bg-gray-100">
+                                DataTables
+                            </a>
+
+                            <a href="../ar/charts.html" class="block w-full px-4 py-2 text-left text-sm hover:bg-gray-100">
+                                Chart Js
+                            </a>
+
+                            <a href="../ar/profile-dashboard.html"
+                                class="block w-full px-4 py-2 text-left text-sm hover:bg-gray-100">
+                                Profile
+                            </a>
+
+                            <a href="../ar/Ecoomerce-dashboard.html"
+                                class="block  w-full px-4 py-2 text-left text-sm hover:bg-gray-100">
+                                E-Commerce
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end dropdown modal  -->
+            </li>
+        </ul>
+    </div>
+    <!-- end mini navbar -->
+
+    <!-- start breadcrump -->
+    <div class="container md:px-5">
+        <div class="flex items-center py-4 overflow-y-auto whitespace-nowrap">
+            <a href="#" class="text-gray-600 dark:text-gray-200">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="black">
+                    <path
+                        d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                </svg>
+            </a>
+
+            <span class="mx-2 hover:stroke-cyan-700">
+                <i class="fa fa-angle-left mt-2"></i>
+            </span>
+
+            <a href="#" class="text-black">
+                About Us
+            </a>
+        </div>
+    </div>
+    <!-- end breadvrump -->
+
+    <!-- start about us -->
+    <div class="container mb-5 md:px-5">
+        <p class="text-2xl mt-3">About <span class="text-blue-500">Us</span></p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 md:space-x-3 rtl:space-x-reverse">
+            <p class="mt-3 text-gray-700">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo expedita, iste,
+                iure, placeat aliquid tenetur
+                dignissimos dolore quo impedit soluta obcaecati hic rem. Iste sint atque inventore aperiam dolore
+                veritatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo expedita, iste, iure, placeat
+                aliquid tenetur
+                dignissimos dolore quo impedit soluta obcaecati hic rem. Iste sint atque inventore aperiam dolore
+                veritatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo expedita, iste, iure, placeat
+                aliquid tenetur
+                dignissimos dolore quo impedit soluta obcaecati hic rem. Iste sint atque inventore aperiam dolore
+                veritatis.
+            </p>
+            <img class="rounded md:h-72 w-full mt-3 md:mt-0" src="/images/blog/blog3.jpg" alt="about us">
+        </div>
+    </div>
+    <!-- end about us -->
+
+    <!-- start footer -->
+    <footer class="bg-blue-900 bg-opacity-75 w-full h-full p-3">
+        <div class="container">
+            <div class="grid md:grid-cols-4 gap-6 text-center">
+                <div class="bref">
+                    <img class="w-20 h-20 bg-white rounded-full mx-auto p-1"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Wikimedia-logo.png/480px-Wikimedia-logo.png"
+                        alt="logo footer">
+                    <p class="text-white mt-2 font-semibold">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </p>
+                    <div class="flex items-center justify-center space-x-2 mt-2">
+                        <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white"
+                                class="bi bi-facebook" viewBox="0 0 16 16">
+                                <path
+                                    d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
+                            </svg>
+                        </a>
+                        <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white"
+                                class="bi bi-whatsapp m-2" viewBox="0 0 16 16">
+                                <path
+                                    d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+                            </svg>
+                        </a>
+                        <a href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white"
+                                class="bi bi-instagram" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="fastlinks text-white cursor-pointer">
+                    <ul class="md:mt-5">
+                        <h5 class="text-black font-semibold leading-6">Fast Links</h5>
+                        <li class="mt-2"> Login Now !</li>
+                        <li>Report</li>
+                        <li>Admin</li>
+                    </ul>
+                </div>
+                <div class="customer text-white cursor-pointer">
+                    <ul class="md:mt-5">
+                        <h5 class="text-black font-semibold leading-6">Customer</h5>
+                        <li class="mt-2"> New Account</li>
+                        <li>Register</li>
+                        <li>Admin</li>
+                    </ul>
+                </div>
+                <div class="newsletter text-white cursor-pointer">
+                    <h5 class="text-black md:mt-5 font-semibold leading-6">NewsLetter</h5>
+                    <p class="mt-2">Subscribe plz</p>
+                    <div class="md:flex mt-3">
+                        <input type="text" class="w-full rounded text-black p-2" placeholder="Email">
+                        <input type="button" class="bg-black ltr:ml-2 rtl:mr-2 md:p-2 md:px-3 rounded w-full md:w-20"
+                            value="Send">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- end footer -->
+
+    <script src="../main.js"></script>
+
+    <!-- script addtional css i want  -->
+    <script>
+        tailwind.config = {
+            theme: {
+                container: {
+                    center: true,
+                    padding: {
+                        DEFAULT: '1rem',
+                        sm: '2rem',
+                        lg: '4rem',
+                        xl: '5rem',
+                        '2xl': '6rem',
+                    },
+                },
+            },
+            variants: {
+                space:['responsive','direction'],
+                extend: {
+                    display: ['group-hover'],
+                    visibility: ['group-hover'],
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

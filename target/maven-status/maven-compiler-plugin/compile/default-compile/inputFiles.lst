@@ -9,8 +9,10 @@
 /home/a.guindo@gop.link/eclipse-workspace/e-bankass/src/main/java/com/bankassShop/ebankass/EBankassApplication.java
 /home/a.guindo@gop.link/eclipse-workspace/e-bankass/src/main/java/com/bankassShop/ebankass/Dto/AddressDto.java
 /home/a.guindo@gop.link/eclipse-workspace/e-bankass/src/main/java/com/bankassShop/ebankass/mapper/CustomerMapper.java
+/home/a.guindo@gop.link/eclipse-workspace/e-bankass/src/main/java/com/bankassShop/ebankass/model/Coupon.java
 /home/a.guindo@gop.link/eclipse-workspace/e-bankass/src/main/java/com/bankassShop/ebankass/model/Address.java
 /home/a.guindo@gop.link/eclipse-workspace/e-bankass/src/main/java/com/bankassShop/ebankass/Dto/CustomerDto.java
 /home/a.guindo@gop.link/eclipse-workspace/e-bankass/src/main/java/com/bankassShop/ebankass/config/EbankassConfig.java
 /home/a.guindo@gop.link/eclipse-workspace/e-bankass/src/main/java/com/bankassShop/ebankass/model/Order.java
 /home/a.guindo@gop.link/eclipse-workspace/e-bankass/src/main/java/com/bankassShop/ebankass/model/Customer.java
+/home/a.guindo@gop.link/eclipse-workspace/e-bankass/src/main/java/com/bankassShop/ebankass/model/Offer.java

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <title>Tailwind & Alpine</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&family=Raleway:wght@200;300;400;500;600;700&family=Roboto+Condensed:wght@400;700&family=Roboto:wght@300;400;500;700;900&family=Saira:wght@300;400;500;600;700;800;900&display=swap');
+
+        * {
+            font-family: 'Cairo', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-300">
+
+    <!-- start sign in -->
+    <div class="mx-auto">
+        <p class="font-semibold text-2xl text-center mb-3 mt-5 uppercase">Sign In</p>
+        <div class="login mb-5">
+            <div class="w-full max-w-sm mx-auto">
+                <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                            Username
+                        </label>
+                        <input
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            id="username" type="text" placeholder="Username">
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                            Password
+                        </label>
+                        <input
+                            class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                            id="password" type="password" placeholder="******************">
+                        <p class="text-red-500 text-xs italic">Please choose a password.</p>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <button
+                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                            type="button">
+                            <a href="/sign-up.html" class="hover:text-white">Sign Up</a>
+                        </button>
+                        <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+                            href="/forget-password.html">
+                            Forgot Password?
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- end sign in -->
+
+    <script src="/main.js"></script>
+</body>
+
+</html>
